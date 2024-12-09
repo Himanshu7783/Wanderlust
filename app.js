@@ -1,10 +1,6 @@
 if(process.env.NODE_ENV != "production"){
   require('dotenv').config();
 }
-
-
- 
-
 const express = require("express");
 const app = express();
 const mongoose=require("mongoose");
@@ -28,18 +24,39 @@ const userRouter = require("./routes/user.js");
  
 const dbUrl = process.env.ATLASDB_URL;
 
-main()
-.then(() =>{
-    console.log("connected to DB");
-})
- .catch((err) =>{
-    console.log(err);
- })
 
-   async function main() {
-    await mongoose.connect(dbUrl);
+// main()
+// .then(() =>{
+//     console.log("connected to DB");
+// })
+//  .catch((err) =>{
+//     console.log("Error",err);
+//  })
+
+// //  "mongodb+srv://happycoding55:yadav7783@cluster0.cjxcr.mongodb.net/Testing"
+//    async function main() {
+//     // await mongoose.connect(dbUrl);
+//     await mongoose.connect(Mongo_url)
+//     console.log("connected successful");
     
-   }
+    
+//    }
+
+  //  checking
+  
+  const main =async()=>{
+    await mongoose.connect(dbUrl)
+}
+
+main().then(
+    console.log("Database connected ")
+    
+).catch((err)=>{
+    console.log("error occurs");
+    console.log(err);
+    
+    
+})
  
    app.set("view engine", "ejs");
    app.set("views", path.join(__dirname, "views"));

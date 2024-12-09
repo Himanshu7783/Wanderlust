@@ -21,7 +21,7 @@ const {isLoggedIn, isOwner, validateListing} = require("../middleware.js");
     router.get("/:id", wrapAsync(listingcontroller.renderShowRoutes)) ;
 
   //Create Route
- router.post("/", 
+   router.post("/", 
 
       isLoggedIn,
       
